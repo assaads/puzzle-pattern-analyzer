@@ -34,33 +34,59 @@ Systematically work through these categories. Do not skip — go in order, but s
 
 ### For word puzzles
 
-| # | Approach | What to test |
-|---|---|---|
-| 1 | First letter / last letter | Alphabetical patterns, acronyms |
-| 2 | Embedded words (start) | Does each word BEGIN with a standalone word? |
-| 3 | Embedded words (end) | Does each word END with a standalone word? |
-| 4 | Embedded words (anywhere) | Hidden words within the word |
-| 5 | Syllable count | Count syllables per word |
-| 6 | Letter count | Total letters in each word |
-| 7 | Repeated letters | Does the word have any repeated characters? |
-| 8 | Double letters | Contains consecutive identical letters (ll, mm, etc.) |
-| 9 | Vowels / consonants | Count ratio, which vowels appear, vowel order |
-| 10 | Second letter | Often overlooked, can reveal hidden patterns |
-| 11 | Stress pattern | Which syllable is emphasized |
-| 12 | Word class / part of speech | Can the word function as an adjective? noun? verb? |
-| 13 | Compound words | Is it made of two recognizable words? |
-| 14 | Common connector | Is there ONE word that can precede/follow ALL items? |
-| 15 | Chemical element symbols | Do hidden element symbols form a pattern? |
-| 16 | Body parts | Does each word contain a hidden body part? |
-| 17 | Color words | Does each word contain or relate to a color? |
-| 18 | Verbs hidden | Does each word contain a common verb? |
-| 19 | Places | Does each word contain or relate to a place? |
-| 20 | Category/domain | Natural vs man-made, living vs non-living, etc. |
-| 21 | Etymology | Greek vs Latin vs Germanic origin |
-| 22 | Remove first/last N letters | What remains — is it a word? |
-| 23 | Anagram potential | Can letters be rearranged to form something? |
-| 24 | Rhyme / phonetics | How do the words sound? Shared sounds? |
-| 25 | Cross-domain associations | Brands, slang, cultural references, proper nouns |
+Work through these in order. Each approach tests ALL words before scoring.
+
+**Group A: Hidden substring patterns (start here — most common puzzle mechanic)**
+
+1. **Embedded measurement/metric units** — Scan every substring of each word for:
+   - Full units: inch, foot, mile, yard, stone, ton, ounce, pound, gram, liter, meter, pint, cup, gallon, acre, hectare, kelvin, watt, volt, amp, ohm, bar, calorie, joule, hertz, lux, mole, lumen, lux
+   - Metric prefixes: kilo (ki), milli (mi, mil), centi (cen), deci (deci), micro (mic), nano (na, nan), mega (me, meg), giga (gi, gig), tera (te, ter), peta (pe, pet)
+   - Abbreviations: kg, km, ml, mm, cm, lb, oz, ft, in, m, g, l, s, ms, ns
+   - After finding units, check if they share a property (all imperial vs one metric, all weight vs one distance, etc.) — the outlier is often the answer
+
+2. **Embedded words (start)** — Does each word BEGIN with a standalone English word?
+3. **Embedded words (end)** — Does each word END with a standalone English word?
+4. **Embedded words (anywhere)** — Hidden words within the word — be exhaustive, check every 2+ letter substring
+
+**Group B: Letter-level patterns**
+
+5. First letter / last letter — Alphabetical patterns, acronyms
+6. Second letter — Often overlooked, can reveal hidden patterns
+7. Letter count — Total letters in each word
+8. Syllable count — Count syllables per word
+9. Repeated letters — Does the word have any repeated characters?
+10. Double letters — Contains consecutive identical letters (ll, mm, etc.)
+11. Vowels / consonants — Count ratio, which vowels appear, vowel order
+
+**Group C: Word structure patterns**
+
+12. Compound words — Is it made of two recognizable words?
+13. Remove first/last N letters — What remains — is it a word?
+14. Word class / part of speech — Can the word function as an adjective? noun? verb?
+15. Stress pattern — Which syllable is emphasized
+
+**Group D: Hidden category patterns**
+
+16. Common connector — Is there ONE word that can precede/follow ALL items?
+17. Chemical element symbols — Do hidden element symbols form a pattern?
+18. Body parts — Does each word contain a hidden body part?
+19. Color words — Does each word contain or relate to a color?
+20. Verbs hidden — Does each word contain a common verb?
+21. Places / geography — Does each word contain or relate to a place?
+22. Numbers — Does each word contain or relate to a number? (one, two, ten, etc.)
+
+**Group E: Domain & origin patterns**
+
+23. Category/domain — Natural vs man-made, living vs non-living, etc.
+24. Etymology — Greek vs Latin vs Germanic origin
+25. Cross-domain associations — Brands, slang, cultural references, proper nouns
+
+**Group F: Sound & transformation patterns**
+
+26. Rhyme / phonetics — How do the words sound? Shared sounds?
+27. Anagram potential — Can letters be rearranged to form something?
+
+**Important:** Group A approaches are the most common in curated puzzles. If a Group A approach finds a pattern that fits all but one word, that is likely the answer — but still verify with 2-3 more approaches.
 
 ### For visual / pattern puzzles
 
