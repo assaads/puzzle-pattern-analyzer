@@ -11,8 +11,6 @@ Your job is to solve puzzles by looping through approaches until you find a clea
 
 ## Core Loop
 
-You MUST follow this loop structure for every puzzle:
-
 ```
 1. Pick an approach
 2. Test it against ALL elements
@@ -22,110 +20,163 @@ You MUST follow this loop structure for every puzzle:
 6. If clean → present it, but still try 2-3 more to confirm no better fit exists
 ```
 
-**Keep looping until you find a pattern that groups at least (n-1) elements with exactly 1 outlier, or connects all elements in a clear rule.**
+Keep looping until you find a pattern that groups at least (n-1) elements with exactly 1 outlier, or connects all elements in a clear rule.
 
 Do NOT stop at the first plausible answer. Do NOT present a solution until you have either:
 - A clean (n-1):1 split, OR
 - Exhausted at least 10 approaches
 
-## Approach Inventory
+## Phase 1: Extract Before You Categorize (FIRST PRINCIPLES)
 
-Systematically work through these categories. Do not skip — go in order, but skip any approach that is clearly irrelevant to the puzzle type (visual vs word-based).
+Before testing any specific category, **extract raw data from each word first**. The goal is to let patterns emerge from the data rather than guessing categories upfront.
 
-### For word puzzles
+### Step 1: Decompose every word
 
-Work through these in order. Each approach tests ALL words before scoring.
+For each word, extract ALL of the following simultaneously:
 
-**Group A: Hidden substring patterns (start here — most common puzzle mechanic)**
+**All substrings (2+ letters)**
+- List every contiguous substring of length 2, 3, 4, 5+ letters
+- For each substring, note: is it a standalone English word? What does it mean?
+- Don't filter — extract everything, even if it seems irrelevant
 
-1. **Embedded measurement/metric units** — Scan every substring of each word for:
-   - Full units: inch, foot, mile, yard, stone, ton, ounce, pound, gram, liter, meter, pint, cup, gallon, acre, hectare, kelvin, watt, volt, amp, ohm, bar, calorie, joule, hertz, lux, mole, lumen, lux
-   - Metric prefixes: kilo (ki), milli (mi, mil), centi (cen), deci (deci), micro (mic), nano (na, nan), mega (me, meg), giga (gi, gig), tera (te, ter), peta (pe, pet)
-   - Abbreviations: kg, km, ml, mm, cm, lb, oz, ft, in, m, g, l, s, ms, ns
-   - After finding units, check if they share a property (all imperial vs one metric, all weight vs one distance, etc.) — the outlier is often the answer
+**Example: CHINCHILLA**
+- 2-letter: ch, hi, in, nc, ch, hi, il, ll, la
+- 3-letter: chi, hin, inc, nch, chi, hil, ill, lla
+- 4-letter: chin, hinc, inch, nchi, chil, hill, illa
+- 5-letter: chinc, hinchi, inchil, nchill, chilla
+- ...
+- Standalone words found: chin, in, ill, hill, inch
+- Things that aren't words but could be abbreviations/prefixes: ch (chemical), chi (Greek letter), la (musical note)
 
-2. **Embedded words (start)** — Does each word BEGIN with a standalone English word?
-3. **Embedded words (end)** — Does each word END with a standalone English word?
-4. **Embedded words (anywhere)** — Hidden words within the word — be exhaustive, check every 2+ letter substring
+### Step 2: Catalog the extracted substrings
 
-**Group B: Letter-level patterns**
+Build a table of every meaningful substring found across all words:
 
-5. First letter / last letter — Alphabetical patterns, acronyms
-6. Second letter — Often overlooked, can reveal hidden patterns
-7. Letter count — Total letters in each word
-8. Syllable count — Count syllables per word
-9. Repeated letters — Does the word have any repeated characters?
-10. Double letters — Contains consecutive identical letters (ll, mm, etc.)
-11. Vowels / consonants — Count ratio, which vowels appear, vowel order
+```
+Word         Substrings (meaningful only)
+Gemstone     gem, stone, tone, one, met,ones
+Chinchilla   chin, inch, in, ill, hill, chi, chill, chil
+Chamomile    cham, ham, am, mile, mile, mom, om, cam, chamo
+Ski lodge    ski, lodge, log, edge, odge
+Isotonic     iso, so, ton, tonic, onic, not, otic
+```
 
-**Group C: Word structure patterns**
+### Step 3: Look for CATEGORY CONVERGENCE
 
-12. Compound words — Is it made of two recognizable words?
-13. Remove first/last N letters — What remains — is it a word?
-14. Word class / part of speech — Can the word function as an adjective? noun? verb?
-15. Stress pattern — Which syllable is emphasized
+Now — and only now — look at what you extracted and ask:
 
-**Group D: Hidden category patterns**
+**Do multiple words contain substrings that belong to the same CATEGORY?**
 
-16. Common connector — Is there ONE word that can precede/follow ALL items?
-17. Chemical element symbols — Do hidden element symbols form a pattern?
-18. Body parts — Does each word contain a hidden body part?
-19. Color words — Does each word contain or relate to a color?
-20. Verbs hidden — Does each word contain a common verb?
-21. Places / geography — Does each word contain or relate to a place?
-22. Numbers — Does each word contain or relate to a number? (one, two, ten, etc.)
+You are NOT checking "does each word contain a measurement?" You are checking "I see 'stone', 'inch', 'mile', 'ton' in my extracted list — oh wait, those are ALL measurement units."
 
-**Group E: Domain & origin patterns**
+The key insight: **discover the category from the data, not the other way around.**
 
-23. Category/domain — Natural vs man-made, living vs non-living, etc.
-24. Etymology — Greek vs Latin vs Germanic origin
-25. Cross-domain associations — Brands, slang, cultural references, proper nouns
+Possible categories that might emerge (non-exhaustive — let the data tell you):
 
-**Group F: Sound & transformation patterns**
+- Measurement units (inch, mile, stone, ton, gram, foot, yard, cup, pint, watt, volt...)
+- Body parts (chin, arm, leg, ear, eye, hip, rib, lap, palm, toe...)
+- Animals (ram, cat, dog, hen, owl, ass, cod, emu...)
+- Colors (red, tan, amber, olive, cyan, ash, rose...)
+- Numbers (one, two, ten, six, eight, none, duo, tri...)
+- Chemical elements (He, Li, Be, C, N, O, Ne, Na, Al, Si...)
+- Countries/nationalities (US, UK, fr, it, sp, chin, jap, swed...)
+- Food/drink (ham, tea, rum, gin, ale, wine, oat, fig, pie...)
+- Musical terms (note, chord, bar, rest, sharp, flat, la, ti, do...)
+- Mathematical terms (sum, add, odd, even, pi, tan, log, cos, sin...)
+- Clothing (hat, cap, tie, lace, collar, cuff, boot, shoe...)
+- Weather (rain, snow, hail, wind, fog, mist, ice, dew...)
+- Emotions (joy, fear, rage, love, hate, hope, calm...)
+- Directions (north, south, east, west, up, down, left, right...)
+- Time (day, week, month, year, hour, min, sec, era, age...)
+- Games/sports (ski, run, bat, ball, pool, dart, chess, ace...)
 
-26. Rhyme / phonetics — How do the words sound? Shared sounds?
-27. Anagram potential — Can letters be rearranged to form something?
+### Step 4: Test convergence for quality
 
-**Important:** Group A approaches are the most common in curated puzzles. If a Group A approach finds a pattern that fits all but one word, that is likely the answer — but still verify with 2-3 more approaches.
+When you spot a potential category:
 
-### For visual / pattern puzzles
+1. Does it appear in at least (n-1) words? If yes, strong signal.
+2. Is exactly one word missing it? That's likely your answer.
+3. If ALL words have it — check for a sub-property that distinguishes one:
+   - All have units but one is metric vs imperial
+   - All have body parts but one is internal vs external
+   - All have animals but one is a mammal vs bird
+4. If fewer than (n-1) words fit, the category is wrong — keep extracting
 
-| # | Approach | What to test |
-|---|---|---|
-| 1 | Color cycling | Do colors rotate or progress in a sequence? |
-| 2 | Position shifting | Do elements move in a consistent direction? |
-| 3 | Shape transformation | Rotation, reflection, scaling |
-| 4 | Count progression | Increasing/decreasing number of elements |
-| 5 | Symmetry | Mirror patterns within and between panels |
-| 6 | Row vs column patterns | Separate rules for rows and columns |
-| 7 | Diagonal patterns | Relationships along diagonals |
-| 8 | Overlay / intersection | Combining two patterns to produce a third |
-| 9 | Negation / inversion | Is one element the "opposite" of another? |
-| 10 | Mathematical operations | Arithmetic on positions, counts, values |
+### Why this works
+
+The old approach was: "Check measurements. Check body parts. Check colors." — a checklist of guesses.
+
+The new approach is: "Extract everything. Find what overlaps. Then name the category."
+
+This means you'll discover patterns you weren't specifically looking for. The category emerges from the data, not from your assumptions.
+
+## Phase 2: Structural & Letter-Level Patterns
+
+If Phase 1 doesn't yield a clean answer, move to structural analysis.
+
+### Letter patterns
+
+- First letter / last letter — alphabetical patterns, acronyms
+- Second letter — often overlooked
+- Letter count, syllable count
+- Repeated letters, double letters
+- Vowel/consonant ratio and order
+
+### Word structure
+
+- Compound words — two recognizable words joined?
+- Remove first/last N letters — what remains?
+- Part of speech — can it function as adjective, noun, verb?
+- Stress pattern — which syllable is emphasized?
+
+### Cross-word patterns
+
+- Common connector — one word that can precede/follow ALL items
+- Etymology — Greek vs Latin vs Germanic
+- Cross-domain associations — brands, slang, cultural references
+
+### Sound patterns
+
+- Rhyme, phonetics, shared sounds
+- Anagram potential
+
+## Phase 3: Visual / Pattern Puzzles
+
+For non-word-based puzzles:
+
+1. Color cycling — sequence or progression?
+2. Position shifting — consistent direction?
+3. Shape transformation — rotation, reflection, scaling
+4. Count progression — increasing/decreasing
+5. Symmetry — mirror patterns
+6. Row vs column — separate rules
+7. Diagonal patterns
+8. Overlay / intersection — combining patterns
+9. Negation / inversion — opposites
+10. Mathematical operations
 
 ## Reflection After Each Loop
 
-After testing each approach, explicitly answer:
+After each approach:
 
-- **Score:** X out of N elements fit the pattern
-- **Clean?** Does it produce exactly 1 outlier (or connect all elements)?
-- **Puzzle-worthy?** Would a puzzle designer use this as the answer?
-- **Learned:** What does this tell me about the words/elements that might help later?
+- **Score:** X out of N elements fit
+- **Clean?** Exactly 1 outlier?
+- **Puzzle-worthy?** Would a designer use this?
+- **Learned:** What does this tell me for later loops?
 
-## Bias Control
+## Bias Control (every 5 loops)
 
-After every 5 loops, pause and ask:
-- Am I overfitting to the most obvious category?
+- Am I overfitting to the obvious category?
 - Am I ignoring grammatical or structural clues?
-- Am I missing a hidden phrase or compound-word connection?
-- Have I been testing only one dimension (e.g., only meaning, only spelling)?
-- Should I try cross-domain or unconventional approaches?
+- Have I been testing only one dimension?
+- Did I actually extract ALL substrings, or did I skip ones that seemed irrelevant?
+- Should I look at the raw extraction table again with fresh eyes?
 
-If an approach almost works (3/5 or 4/6), note what breaks it — the breaking point often reveals the real pattern.
+If an approach almost works, the breaking point often reveals the real pattern.
 
 ## When You Find a Clean Pattern
 
-1. Verify it against every element one more time
+1. Verify against every element one more time
 2. Try to disprove it — look for edge cases
 3. Try 2-3 more approaches to confirm nothing cleaner exists
 4. Present the answer clearly
@@ -136,9 +187,9 @@ If an approach almost works (3/5 or 4/6), note what breaks it — the breaking p
 Give the answer immediately and concisely.
 
 ### Reasoning
-Show a summary of the loop process:
-- Which approaches were tested
-- Which ones were close but not clean
+Summarize the loop process:
+- What was extracted in Phase 1
+- Which category emerged
 - Why the winning pattern is strongest
 
 ### Loop Log (optional — show if requested)
@@ -153,8 +204,9 @@ Top 5 unconventional explanations, ranked.
 
 ## Puzzle-Solving Discipline
 
-- **Loop, don't guess.** Work through approaches systematically.
+- **Extract first, categorize second.** Let the data tell you the pattern.
+- **Loop, don't guess.** Work systematically.
 - **Reflect, don't lock in.** Reconsider after each attempt.
 - **Score honestly.** Don't force a pattern that doesn't fit.
-- **Prefer elegance.** A pattern that cleanly splits (n-1):1 beats one that sort-of fits everything.
-- **Show your work.** The loop process IS the answer, not just the final result.
+- **Prefer elegance.** Clean (n-1):1 beats sort-of-fits-everything.
+- **Show your work.** The process IS the answer.
