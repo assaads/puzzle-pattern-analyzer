@@ -26,52 +26,87 @@ Do NOT stop at the first plausible answer. Do NOT present a solution until you h
 - A clean (n-1):1 split, OR
 - Exhausted at least 10 approaches
 
-## Phase 1: Extract Before You Categorize (FIRST PRINCIPLES)
+## The Core Principle: Decompose Broadly, Then Discover
 
-Before testing any specific category, **extract raw data from each word first**. The goal is to let patterns emerge from the data rather than guessing categories upfront.
+Don't guess categories. Decompose each element along every possible dimension, lay it all out, and let patterns emerge from the data.
 
-### Step 1: Decompose every word
+## Phase 1: Full Decomposition
 
-For each word, extract ALL of the following simultaneously:
+For each word/puzzle element, extract data along ALL of these dimensions simultaneously. Don't skip any.
 
-**All substrings (2+ letters)**
-- List every contiguous substring of length 2, 3, 4, 5+ letters
-- For each substring, note: is it a standalone English word? What does it mean?
-- Don't filter — extract everything, even if it seems irrelevant
+### Dimension A: Internal substrings
+- Every contiguous substring of 2+ letters
+- Which are standalone English words?
+- Which are abbreviations, prefixes, symbols, or domain-specific terms?
+- Don't filter — even "irrelevant" substrings matter
 
-**Example: CHINCHILLA**
-- 2-letter: ch, hi, in, nc, ch, hi, il, ll, la
-- 3-letter: chi, hin, inc, nch, chi, hil, ill, lla
-- 4-letter: chin, hinc, inch, nchi, chil, hill, illa
-- 5-letter: chinc, hinchi, inchil, nchill, chilla
-- ...
-- Standalone words found: chin, in, ill, hill, inch
-- Things that aren't words but could be abbreviations/prefixes: ch (chemical), chi (Greek letter), la (musical note)
+### Dimension B: Words that PAIR with this word
+- What word comes immediately BEFORE this word in common phrases? (e.g. "precious" → precious gemstone)
+- What word comes immediately AFTER? (e.g. gemstone → gemstone ring)
+- What word could complete a common expression? (e.g. "set in ___" → stone)
+- Think of 5-10 common collocations for each word
 
-### Step 2: Catalog the extracted substrings
+### Dimension C: Semantic properties
+- What category does this word belong to? (animal, mineral, place, concept, etc.)
+- What are its literal and metaphorical associations?
+- What domain(s) is it used in? (medicine, cooking, sports, music, science, etc.)
+- What proper nouns, brands, slang, or cultural references relate to it?
 
-Build a table of every meaningful substring found across all words:
+### Dimension D: Structural properties
+- Letter count, syllable count
+- First letter, last letter, second letter
+- Repeated or double letters
+- Vowel/consonant pattern
+- Stress pattern
+- Compound word? Can it be split into parts?
+- What remains if you remove first/last N letters?
+- Part of speech (can it be noun, verb, adjective?)
 
-```
-Word         Substrings (meaningful only)
-Gemstone     gem, stone, tone, one, met,ones
-Chinchilla   chin, inch, in, ill, hill, chi, chill, chil
-Chamomile    cham, ham, am, mile, mile, mom, om, cam, chamo
-Ski lodge    ski, lodge, log, edge, odge
-Isotonic     iso, so, ton, tonic, onic, not, otic
-```
+### Dimension E: Relational properties
+- How does this word relate to the others in meaning?
+- Could these words form a sequence or progression?
+- Is there a shared context where all of these would appear together?
+- Does one word "govern" the others grammatically?
 
-### Step 3: Look for CATEGORY CONVERGENCE
+### Dimension F: Phonetic properties
+- Rhyme, alliteration, shared sounds
+- How many distinct sounds/syllables?
+- Anagram potential
 
-Now — and only now — look at what you extracted and ask:
+## Phase 2: Discover Patterns From The Data
 
-**Do multiple words contain substrings that belong to the same CATEGORY?**
+Now lay everything out and look across ALL dimensions for convergence.
 
-You are NOT checking "does each word contain a measurement?" You are checking "I see 'stone', 'inch', 'mile', 'ton' in my extracted list — oh wait, those are ALL measurement units."
+### What to look for:
 
-The key insight: **discover the category from the data, not the other way around.**
+1. **Shared substrings that converge on a category** — Multiple words contain substrings that all belong to the same category (measurements, body parts, animals, etc.). You didn't know to look for that category — it emerged.
 
-Possible categories that might emerge (non-exhaustive — let the data tell you):
+2. **Shared pairing words** — Multiple words pair with the SAME word before or after. (e.g. all can follow "___" something). The pairing word might be the hidden connection.
+
+3. **Sequential/progressive patterns** — The elements form a sequence (alphabetical, numerical, size order, lifecycle, timeline, etc.) with one element breaking the sequence.
+
+4. **Shared domain** — All elements belong to the same domain (music, cooking, sports, medicine, etc.) except one.
+
+5. **Shared structural property** — All share a letter-level pattern (double letters, vowel count, etc.) except one.
+
+6. **Opposites or complements** — Some elements are pairs of opposites, with one unpaired outlier.
+
+7. **Hidden transformations** — One element is a transformation of another (anagram, reversal, rotation of letters).
+
+8. **Meta-patterns** — The pattern is about how the words relate to EACH OTHER, not about the words themselves (e.g. each word describes the word next to it).
+
+### How to test:
+
+When you spot convergence:
+1. Does it cover at least (n-1) elements? Strong signal.
+2. Is exactly one element excluded? That's likely the answer.
+3. If ALL elements fit — look for a sub-property that distinguishes one (e.g. all have units but one is metric vs imperial).
+4. If fewer than (n-1) fit, the pattern is wrong or incomplete — keep looking.
+5. Check if combining two weak patterns from different dimensions creates a strong one.
+
+### Category reference (emergent, not prescriptive)
+
+These are categories that MIGHT emerge from substring extraction. Do NOT use this as a checklist — use it to recognize patterns you've already found:
 
 - Measurement units (inch, mile, stone, ton, gram, foot, yard, cup, pint, watt, volt...)
 - Body parts (chin, arm, leg, ear, eye, hip, rib, lap, palm, toe...)
@@ -89,56 +124,10 @@ Possible categories that might emerge (non-exhaustive — let the data tell you)
 - Directions (north, south, east, west, up, down, left, right...)
 - Time (day, week, month, year, hour, min, sec, era, age...)
 - Games/sports (ski, run, bat, ball, pool, dart, chess, ace...)
+- Tools/objects (pen, pin, nail, axe, saw, drill, hammer...)
+- Nature (tree, sea, river, mountain, leaf, root, bark, stone...)
 
-### Step 4: Test convergence for quality
-
-When you spot a potential category:
-
-1. Does it appear in at least (n-1) words? If yes, strong signal.
-2. Is exactly one word missing it? That's likely your answer.
-3. If ALL words have it — check for a sub-property that distinguishes one:
-   - All have units but one is metric vs imperial
-   - All have body parts but one is internal vs external
-   - All have animals but one is a mammal vs bird
-4. If fewer than (n-1) words fit, the category is wrong — keep extracting
-
-### Why this works
-
-The old approach was: "Check measurements. Check body parts. Check colors." — a checklist of guesses.
-
-The new approach is: "Extract everything. Find what overlaps. Then name the category."
-
-This means you'll discover patterns you weren't specifically looking for. The category emerges from the data, not from your assumptions.
-
-## Phase 2: Structural & Letter-Level Patterns
-
-If Phase 1 doesn't yield a clean answer, move to structural analysis.
-
-### Letter patterns
-
-- First letter / last letter — alphabetical patterns, acronyms
-- Second letter — often overlooked
-- Letter count, syllable count
-- Repeated letters, double letters
-- Vowel/consonant ratio and order
-
-### Word structure
-
-- Compound words — two recognizable words joined?
-- Remove first/last N letters — what remains?
-- Part of speech — can it function as adjective, noun, verb?
-- Stress pattern — which syllable is emphasized?
-
-### Cross-word patterns
-
-- Common connector — one word that can precede/follow ALL items
-- Etymology — Greek vs Latin vs Germanic
-- Cross-domain associations — brands, slang, cultural references
-
-### Sound patterns
-
-- Rhyme, phonetics, shared sounds
-- Anagram potential
+This list is NOT exhaustive. The real category might be something not listed here. Trust the data over the list.
 
 ## Phase 3: Visual / Pattern Puzzles
 
